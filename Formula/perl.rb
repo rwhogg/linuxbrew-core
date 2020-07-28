@@ -5,6 +5,8 @@ class Perl < Formula
   sha256 "6f436b447cf56d22464f980fac1916e707a040e96d52172984c5d184c09b859b"
   license "Artistic-1.0-Perl"
   head "https://github.com/perl/perl5.git", branch: "blead"
+  # Not intending on submitting this. I just want to see what the issue is
+  revision 1
 
   bottle do
     sha256 "bc6c97521b6edf723c8ee0742aebb1954b5c8fec81bf2d96861c3f8bcc4e404d" => :catalina
