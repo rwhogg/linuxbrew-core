@@ -20,6 +20,7 @@ class Httpd < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def install
