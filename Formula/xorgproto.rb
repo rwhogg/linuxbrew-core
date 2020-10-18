@@ -23,6 +23,7 @@ class Xorgproto < Formula
       --localstatedir=#{var}
       --disable-dependency-tracking
       --disable-silent-rules
+      --enable-legacy
     ]
 
     system "./configure", *args
