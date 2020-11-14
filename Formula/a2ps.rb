@@ -37,7 +37,7 @@ class A2ps < Formula
   end
 
   # Fails to build on Catalina. No new release since 2007
-  disable! because: :does_not_build
+  disable! because: :does_not_build if OS.mac?
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
