@@ -44,8 +44,13 @@ class Go < Formula
     end
 
     on_linux do
-      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
-      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+      if Hardware::CPU.arm?
+        url "https://storage.googleapis.com/golang/go1.7.linux-armv6l.tar.gz"
+        sha256 "4192592728e2f9fac8ae43abedb4b98d811836c3965035e7cb8c603aa5e65be4"
+      else
+        url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+        sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+      end
     end
   end
 
@@ -69,7 +74,7 @@ class Go < Formula
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
-    system bin/"go", "install", "-race", "std"
+    system bin/"go", "install", *("-race" unless Hardware::CPU.is_32_bit?), "std"
 
     # Build and install godoc
     ENV.prepend_path "PATH", bin
