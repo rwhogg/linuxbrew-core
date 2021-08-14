@@ -17,6 +17,8 @@ class Passenger < Formula
   depends_on "nginx" => [:build, :test]
   depends_on "openssl@1.1"
   depends_on "pcre"
+  uses_from_macos "curl"
+  uses_from_macos "httpd"
   uses_from_macos "ruby", since: :catalina
 
   def install
